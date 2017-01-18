@@ -47,3 +47,23 @@ let forcedString: String = possibleString! // requires an exclamation mark
 
 let assumedString: String! = "An implicitly unwrapped optional string."
 let implicitString: String = assumedString // no need for an exclamation mark
+
+// Optional chaining
+var errorCodeString: String?
+errorCodeString = "404"
+var errorDescription: String?
+if let theError = errorCodeString, let errorCodeInt = Int(theError), errorCodeInt == 404 {
+    errorDescription = "\(errorCodeInt + 200): resource not found"
+}
+
+var upCaseErrorDescription = errorDescription?.uppercased()
+errorDescription
+
+upCaseErrorDescription?.append(". Please try again")
+upCaseErrorDescription
+
+let description = errorDescription ?? "No error"
+
+// Force unwrap a nil optional
+//let value: String? = nil
+//print(value!)
